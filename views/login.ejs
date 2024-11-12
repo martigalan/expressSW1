@@ -8,7 +8,8 @@
 <body>
     <div class="login">
         <h2>Login Forms</h2>
-        <form action="/login" method="post">
+        <form action="/login" method="post"> <!--action: /login -> le digo a mi servidor donde quiero que me mande la info//method: queremos post porque tenemos datos sensibles (sino pongo nada es get)-->
+            <!--lo hacemos así para que, cdo damos al label se asocia al input -> TÍPICA PREGUNTA DE EXAMEN-->
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password:</label><br>

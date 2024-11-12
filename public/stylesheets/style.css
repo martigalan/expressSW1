@@ -1,0 +1,17 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.image-container {
+  display: flex; /*los alinea horizontalmente*/
+  gap: 10px; 
+  justify-content: center; /*centra las imágenes*/
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  width: 200px; 
+  height: auto; 
+}

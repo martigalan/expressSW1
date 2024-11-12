@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Página Inicial</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Página inicial</h1>
+    <p>Bienvenido a la página inicial.</p>
+    <h2>Fotos:</h2>
+    <div class="image-container">
+      <ul>
+        <% elements.forEach(function(element) { %>
+          <img src="<%= element %>" alt="Elemento" class="image-item">
+        <% }); %>
+      </ul>
+    </div>    
+    <p>Para logearte, haga click en el siguiente botón:</p>
+    <button onclick="location.href='/login'">Iniciar sesión</button>
+  </body>
+</html>

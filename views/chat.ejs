@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <%- include("header", {title:'Chat'}) %> 
+  <body>
+    <ul id="messages"></ul>
+    <form id="form">
+        <input id="input">
+        <button>Send</button>
+    </form>
+    <!-- Pasar el nombre del usuario a través de un atributo data-* -->
+    <div id="user" data-username="<%= user.username %>"></div>
+  </body>
+</html>

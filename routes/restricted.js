@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
 //NO definir dos métodos que redirigen al mismo sitio con info distinta, puede dar fallos
 router.get('/', function(req, res, next) {
     //console.log(req.session)
-    res.render('restricted', { title: 'Express', user: req.session.user});
+    res.render('restricted', { title: 'Express', username: req.session.username});
     //Página restringida (solo accesible si el usuario está logueado) 
     if (req.session.loggedin) {
         res.send('Bienvenido, ' + req.session.username + '! Esta es una página restringida.');

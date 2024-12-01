@@ -1,12 +1,14 @@
 #!/usr/bin/env node
+//PARTE DEL SERVER
 
 /**
  * Module dependencies.
  */
 
 var app = require('../app');
-var debug = require('debug')('express-test:server');
+var debug = require('debug')('ejemploexpressgenerator:server');
 var http = require('http');
+const { Server } = require("socket.io");
 
 /**
  * Get port from environment and store in Express.
@@ -17,10 +19,26 @@ app.set('port', port);
 
 /**
  * Create HTTP server.
+ * With this, we mannage messages and exchange of information via messages
  */
-
 var server = http.createServer(app);
-
+const io = new Server(server);
+let messages = [];
+io.on('connection', (socket) => {
+  console.log('User connected');
+  //envio histórico de mensajes al cliente cuando se conecta
+  socket.emit('historicalMessages', messages);
+  //escucho mensajes enviados por cliente (recibidos)
+  socket.on('chat', (data) => {
+    console.log("Mensaje recibido del cliente " + data);
+    //guardo mensaje recibido en el histórico
+    messages.push({ user: data.user, message: data.message });
+    io.emit('chat', { user: data.user, message: data.message }); //voy a enviarle a todos los usuarios el msj que me ha llegado
+  });
+  socket.on('disconnect', () => {
+    console.log('Usuario desconectado');
+  });
+});
 /**
  * Listen on provided port, on all network interfaces.
  */

@@ -1,14 +1,8 @@
-<!--Esto reemplaza todo lo del header/footer que hay en cada pagina. Dentro de {} podemos escribir los distintos elementos
-<%- include("header", {}) %> 
-<h1><%= title%></h1>
-<p>Welcome to footer!</p>
-<%- include("footer", {}) %> -->
-<!DOCTYPE html>
-<html>
   <head>
     <title><%= title%></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
-    <script src=""></script>
+    <script src="/socket.io/socket.io.js" defer></script> 
+    <script src="/javascripts/chat.js" defer></script> <!--SI NO PONGO DEFER, NO FUNCIONA!!! ya que se carga antes html que js-->
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 

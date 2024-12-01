@@ -1,3 +1,12 @@
 <h1><%= message %></h1>
 <h2><%= error.status %></h2>
 <pre><%= error.stack %></pre>
+
+<% if (message) { %>
+    <div class="alert alert-primary" role="alert">
+        This is a primary alert—check it out!
+        <!--TODO lo que empiece con etiqueta "aria" está relacionado con accesibilidad-->
+        <button type = "button" class = "btn-close" data-base-dissmiss= "alert" aria-label = "Close"></button> 
+      </div>
+<% } %>
+
